@@ -1,0 +1,7 @@
+[
+  { "trade_mark_name": "apple", "path": "/apple.jpeg" },
+  { "trade_mark_name": "adidas", "path": "/adidas.png" },
+  { "trade_mark_name": "docker", "path": "/docker.jpg" },
+  { "trade_mark_name": "kubernetes", "path": "/kubernetes.png" },
+  { "trade_mark_name": "flutter", "path": "/flutter.jpg" }
+]
