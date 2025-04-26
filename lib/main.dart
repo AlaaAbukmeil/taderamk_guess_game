@@ -94,29 +94,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     width: 300,
                     height: 350,
-                    child: TrademarkCard(trademark: randomTrademark),
+                    child: TrademarkCard(trademark: randomTrademark, onPointsChange: _calculatePoints),
                   ),
                   const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          _calculatePoints(10);
-                          setState(() {});
-                        },
-                        child: const Text('Correct (+10 pts)'),
-                      ),
-                      const SizedBox(width: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          _calculatePoints(-5);
-                          setState(() {}); 
-                        },
-                        child: const Text('Incorrect (-5 pts)'),
-                      ),
-                    ],
-                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        setState(() {});
+                      },
+                      child: const Text('Next Trademark'),
+                    ),
                 ],
               ),
             );

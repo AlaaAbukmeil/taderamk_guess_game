@@ -1,7 +1,12 @@
 [
   { "trade_mark_name": "apple", "path": "/apple.jpeg" },
-  { "trade_mark_name": "adidas", "path": "/adidas.png" },
+  { "trade_mark_name": "adidas", "path": "/adidas.jpg" },
   { "trade_mark_name": "docker", "path": "/docker.jpg" },
   { "trade_mark_name": "kubernetes", "path": "/kubernetes.png" },
-  { "trade_mark_name": "flutter", "path": "/flutter.jpg" }
+  { "trade_mark_name": "flutter", "path": "/flutter.jpg" },
+  { "trade_mark_name": "hp", "path": "/hp.jpg" },
+  { "trade_mark_name": "lg", "path": "/lg.png" },
+  { "trade_mark_name": "pepsi", "path": "/pepsi.png" },
+  { "trade_mark_name": "wwe", "path": "/wwe.png" }
+
 ]
