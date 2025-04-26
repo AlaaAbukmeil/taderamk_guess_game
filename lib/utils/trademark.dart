@@ -28,9 +28,10 @@ Future<List<Trademark>> loadTrademarks() async {
 }
 class TrademarkCard extends StatefulWidget {
   final Trademark trademark;
-  final Function(int) onPointsChange;
+  final Function(int, int) onPointsChange;
+  final int numberOfTrademarks;
   
-  const TrademarkCard({super.key, required this.trademark, required this.onPointsChange});
+  const TrademarkCard({super.key, required this.trademark, required this.onPointsChange, required this.numberOfTrademarks});
 
   @override
   State<TrademarkCard> createState() => _TrademarkCardState();
@@ -56,14 +57,15 @@ class _TrademarkCardState extends State<TrademarkCard> {
       if (userInput == correctAnswer) {
         _isCorrect = true;
         _feedbackMessage = "Correct!";
-        widget.onPointsChange(10); 
+        widget.onPointsChange(10, widget.numberOfTrademarks); 
         _animateCorrectAnswer();
       } else {
         _isCorrect = false;
         _feedbackMessage = "Incorrect! The answer was: ${widget.trademark.trade_mark_name}";
-        widget.onPointsChange(-5); 
+        widget.onPointsChange(-5, widget.numberOfTrademarks); 
         _animateIncorrectAnswer();
       }
+
     });
     
     _controller.clear();

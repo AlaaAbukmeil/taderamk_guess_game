@@ -33,17 +33,32 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   late Future<List<Trademark>> _trademarksFuture;
   int _points = 0;
+  final random = Random();
+  int _randomIndex = 0;
+
   @override
     void initState(){
       super.initState();
       _trademarksFuture = loadTrademarks();
   }
 
-  void _calculatePoints(int amount){
+  void _calculatePoints(int amount, int arrayLength){
+    _getRandomIndex(arrayLength);
     setState((){
       _points += amount;
     });
   }
+   void _getRandomIndex(int arrayLength){
+    int nextRandom = random.nextInt(arrayLength);
+    while(nextRandom == _randomIndex){
+      nextRandom = random.nextInt(arrayLength);
+    }
+    setState((){
+      _randomIndex = nextRandom;
+    });
+  }
+
+
 
 
   @override
@@ -72,10 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
             return const Center(child: Text('No trademarks found'));
           } else {
             final trademarks = snapshot.data!;
-          
-            final random = Random();
-            final randomIndex = random.nextInt(trademarks.length);
-            final randomTrademark = trademarks[randomIndex];
+            final randomTrademark = trademarks[_randomIndex];
             
             return Center(
               child: Column(
@@ -94,12 +106,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     width: 300,
                     height: 350,
-                    child: TrademarkCard(trademark: randomTrademark, onPointsChange: _calculatePoints),
+                    child: TrademarkCard(trademark: randomTrademark, onPointsChange: _calculatePoints, numberOfTrademarks:trademarks.length ),
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
                       onPressed: () {
-                        setState(() {});
+                        _getRandomIndex(trademarks.length);
+                        // setState(() {});
                       },
                       child: const Text('Next Trademark'),
                     ),
