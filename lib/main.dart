@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tadreamk Demo',
+      title: 'Tadreamk',
       debugShowCheckedModeBanner: false, 
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
