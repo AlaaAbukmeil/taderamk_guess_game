@@ -171,6 +171,8 @@ final _animationDuration = const Duration(milliseconds: 500);
 void _animateCorrectAnswer() {
   setState(() {
     _scale = 1.2;
+    _rotation = 0.05;
+
     _glowColor = Colors.green.withOpacity(0.5);
   });
   
@@ -178,11 +180,14 @@ void _animateCorrectAnswer() {
     if (mounted) {
       setState(() {
         _scale = 1.0;
+            _rotation = 0.05;
+
       });
       
       Future.delayed(_animationDuration, () {
         if (mounted) {
           setState(() {
+                _rotation = 0.0;
             _glowColor = Colors.green.withOpacity(0.2);
           });
         }
